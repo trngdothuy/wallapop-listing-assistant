@@ -1,4 +1,4 @@
-const { GoogleGenerativeAI } = require('@google/generative-ai');
+import { GoogleGenAI } from "@google/genai";
 
 const PROMPT_TEMPLATE = (description) => `
 You are helping a seller on a classifieds marketplace write a better listing.
@@ -17,17 +17,19 @@ this shape:
 }
 `;
 
-async function getAiSuggestion(description) {
+export async function getAiSuggestion(description) {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
     throw new Error('GEMINI_API_KEY is not set. Set it in .env or use MOCK_MODE=true.');
   }
 
-  const genAI = new GoogleGenerativeAI(apiKey);
-  const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
-
-  const result = await model.generateContent(PROMPT_TEMPLATE(description));
-  const text = result.response.text();
+  const ai = new GoogleGenAI({ apiKey });
+  const response = await ai.interactions.create({
+    model: "gemini-3.8-flash",
+    input: PROMPT_TEMPLATE(description) ,
+  });
+  const text = response.output_text
+  console.log(text);
 
   // Gemini sometimes wraps JSON in markdown fences despite instructions
   // not to — strip them defensively before parsing.
@@ -35,5 +37,3 @@ async function getAiSuggestion(description) {
 
   return JSON.parse(cleaned);
 }
-
-module.exports = { getAiSuggestion };

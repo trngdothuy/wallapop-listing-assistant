@@ -1,6 +1,6 @@
-const express = require('express');
-const { getMockSuggestion } = require('../services/mockService');
-const { getAiSuggestion } = require('../services/aiService');
+import express from 'express';
+import { getMockSuggestion } from '../services/mockService.js';
+import { getAiSuggestion } from '../services/aiService.js';
 
 const router = express.Router();
 
@@ -12,6 +12,7 @@ router.post('/suggest', async (req, res) => {
   }
 
   const mockMode = process.env.MOCK_MODE === 'true';
+  console.log(`Received suggestion request (mockMode=${mockMode}):`, description);
 
   try {
     const suggestion = mockMode
@@ -25,4 +26,4 @@ router.post('/suggest', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

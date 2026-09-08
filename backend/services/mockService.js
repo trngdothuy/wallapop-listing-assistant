@@ -1,5 +1,12 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// const fs = require('fs');
+// const path = require('path');
 
 const examples = JSON.parse(
   fs.readFileSync(path.join(__dirname, '..', 'mocks', 'examples.json'), 'utf-8')
@@ -12,9 +19,7 @@ const examples = JSON.parse(
  * them at random so the frontend gets exercised against both good and bad
  * shapes over repeated calls.
  */
-function getMockSuggestion() {
+export function getMockSuggestion() {
   const index = Math.floor(Math.random() * examples.length);
   return examples[index];
 }
-
-module.exports = { getMockSuggestion };

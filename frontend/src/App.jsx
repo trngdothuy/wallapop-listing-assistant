@@ -28,6 +28,7 @@ export default function App() {
     try {
       const data = await fetchSuggestion(description);
       setResult(data);
+      console.log('Suggestion result:', data);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -58,7 +59,7 @@ export default function App() {
         </form>
 
         {result?.mockMode && (
-          <div className="badge">Mock mode — showing a saved example response</div>
+          <div className="badge">Mock mode - showing a saved example response</div>
         )}
 
         {error && <div className="error">⚠ {error}</div>}
@@ -67,7 +68,7 @@ export default function App() {
           <div className="result">
             <div className="field">
               <span className="label">Title</span>
-              <p>{suggestion.title?.trim() ? suggestion.title : '— no title suggested —'}</p>
+              <p>{suggestion.title?.trim() ? suggestion.title : 'Error: No title suggested'}</p>
             </div>
 
             <div className="field">
@@ -79,7 +80,7 @@ export default function App() {
                   ))}
                 </div>
               ) : (
-                <p className="muted">— no tags suggested —</p>
+                <p className="muted">Error: No tags suggested</p>
               )}
             </div>
 
@@ -87,11 +88,11 @@ export default function App() {
               <span className="label">Suggested price range</span>
               {isPriceRangeSane(suggestion.priceRange) ? (
                 <p>
-                  {suggestion.priceRange.min}–{suggestion.priceRange.max}{' '}
+                  {suggestion.priceRange.min} – {suggestion.priceRange.max}{' '}
                   {suggestion.priceRange.currency || ''}
                 </p>
               ) : (
-                <p className="muted">— the model didn't return a usable price range —</p>
+                <p className="muted">Error: The model didn't return a usable price range</p>
               )}
             </div>
           </div>

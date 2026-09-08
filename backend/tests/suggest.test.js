@@ -1,7 +1,6 @@
-process.env.MOCK_MODE = 'true';
-
-const request = require('supertest');
-const app = require('../server');
+import request from 'supertest';
+import app from '../server.js';
+import examples from '../mocks/examples.json';
 
 describe('POST /api/suggest', () => {
   it('rejects an empty description with a 400', async () => {
