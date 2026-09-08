@@ -1,0 +1,31 @@
+[
+  {
+    "title": "Vintage Leather Jacket - Size M, Worn Once",
+    "tags": ["vintage", "leather jacket", "size M", "outerwear", "unisex"],
+    "priceRange": { "min": 45, "max": 80, "currency": "EUR" }
+  },
+  {
+    "title": "Nintendo Switch OLED with 3 Games - Excellent Condition",
+    "tags": ["nintendo switch", "oled", "console", "gaming", "bundle"],
+    "priceRange": { "min": 220, "max": 260, "currency": "EUR" }
+  },
+  {
+    "title": "IKEA MALM Desk, White, Good Condition",
+    "tags": ["ikea", "desk", "furniture", "white", "home office"],
+    "priceRange": { "min": 30, "max": 55, "currency": "EUR" }
+  },
+  {
+    "title": "",
+    "tags": [],
+    "priceRange": { "min": null, "max": null, "currency": "EUR" }
+  },
+  {
+    "title": "great item good condition buy now!!!",
+    "tags": ["item"],
+    "priceRange": { "min": 50, "max": 10, "currency": "EUR" }
+  },
+  {
+    "title": "Mountain Bike 26 inch",
+    "tags": ["bike", "mountain bike", "cycling"]
+  }
+]
