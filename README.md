@@ -1,13 +1,13 @@
 # Wallapop Listing Assistant
 ### By Trang Do Thuy in 2026 for Wallpop Software Engineer Graduate Program
 
-A small tool that takes a rough item description (e.g. *"Vintage leather jacket, worn once, size M"*) and suggests a better listing title, 3–5 search tags, and a suggested price range — powered by Google Gemini.
+A small tool that takes a rough item description (e.g. *"Vintage leather jacket, worn once, size M"*) and suggests a better listing title, 3 - 5 search tags, and a suggested price range - powered by Google Gemini.
 
 ## Stack
 
 - **Backend:** Node.js + Express (`/backend`)
 - **Frontend:** React + Vite (`/frontend`)
-- **AI provider:** Google Gemini (`gemini-1.5-flash`, free tier)
+- **AI provider:** Google Gemini (`gemini-3.8-flash`, free tier)
 
 ## Running it — mock mode (no API key needed)
 
@@ -17,7 +17,8 @@ This is the fastest way to see it working, with zero setup.
 # Backend
 cd backend
 npm install
-cp .env.example .env      # MOCK_MODE is already "true" in the example
+cp .env.example .env      # optional — mock mode works even without this,
+                          # but this is here if you want to inspect the vars
 npm start                 # runs on http://localhost:3001
 
 # Frontend (separate terminal)
@@ -85,8 +86,6 @@ example and the result may not be related to what was typed.
 
 ## Tests
 
-## Tests
-
 ```bash
 cd backend && npm test
 cd frontend && npm run test
@@ -127,7 +126,7 @@ coverage. I selected these tests since I think they are the most common and risk
 
 - Limitation of characters in text field input (with word counts)
 - Validation of text field (for example: must include valid character strings, avoid bad injections,...)
-- Advanced CSS, with Wallpop's logos, colors, etc
+- Advanced CSS, with Wallapop's logos, colors, etc
 - Loading/error states could use a bit more polish (skeleton loader or loading badge)
 - Save, edit, delete descriptions
 - Save input text fields to localStorage so users dont have to enter repeatedly

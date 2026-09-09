@@ -17,7 +17,7 @@
 ### 5. What you would fix with another four hours.
 - Limitation of characters in text field input (with word counts)
 - Validation of text field (for example: must include valid character strings, avoid bad injections,...)
-- Advanced CSS, with Wallpop's logos, colors, etc
+- Advanced CSS, with Wallapop's logos, colors, etc
 - Loading/error states could use a bit more polish (skeleton loader or loading badge)
 - Save, edit, delete descriptions
 - Save input text fields to localStorage so users dont have to enter repeatedly
