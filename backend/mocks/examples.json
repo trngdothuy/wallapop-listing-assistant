@@ -15,6 +15,21 @@
     "priceRange": { "min": 30, "max": 55, "currency": "EUR" }
   },
   {
+    "title": "Canon EOS 2000D DSLR Camera with 18-55mm Lens",
+    "tags": ["canon", "dslr", "camera", "photography", "lens"],
+    "priceRange": { "min": 180, "max": 240, "currency": "EUR" }
+  },
+  {
+    "title": "Kids Bicycle 16 inch, Barely Used",
+    "tags": ["bicycle", "kids", "bike", "16 inch"],
+    "priceRange": { "min": 40, "max": 65, "currency": "EUR" }
+  },
+  {
+    "title": "Wooden Bookshelf, 5 Shelves, Solid Pine",
+    "tags": ["bookshelf", "furniture", "wood", "storage"],
+    "priceRange": { "min": 60, "max": 90, "currency": "EUR" }
+  },
+  {
     "title": "",
     "tags": [],
     "priceRange": { "min": null, "max": null, "currency": "EUR" }
@@ -23,9 +38,5 @@
     "title": "great item good condition buy now!!!",
     "tags": ["item"],
     "priceRange": { "min": 50, "max": 10, "currency": "EUR" }
-  },
-  {
-    "title": "Mountain Bike 26 inch",
-    "tags": ["bike", "mountain bike", "cycling"]
   }
 ]

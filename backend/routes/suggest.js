@@ -11,7 +11,7 @@ router.post('/suggest', async (req, res) => {
     return res.status(400).json({ error: 'A non-empty "description" string is required.' });
   }
 
-  const mockMode = process.env.MOCK_MODE === 'true';
+  const mockMode = process.env.MOCK_MODE !== 'false';
   console.log(`Received suggestion request (mockMode=${mockMode}):`, description);
 
   try {

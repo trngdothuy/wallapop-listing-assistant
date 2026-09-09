@@ -3,37 +3,69 @@ import app from '../server.js';
 import examples from '../mocks/examples.json';
 
 describe('POST /api/suggest', () => {
-  it('rejects an empty description with a 400', async () => {
-    const res = await request(app).post('/api/suggest').send({ description: '' });
-    expect(res.status).toBe(400);
-    expect(res.body.error).toBeDefined();
-  });
+  
+    // Test that the endpoint returns a 400 for invalid input
+    it('rejects an empty description with a 400', async () => {
+        const res = await request(app).post('/api/suggest').send({ description: '' });
+        expect(res.status).toBe(400);
+        expect(res.body.error).toBeDefined();
+    });
 
-  it('rejects a missing description field with a 400', async () => {
-    const res = await request(app).post('/api/suggest').send({});
-    expect(res.status).toBe(400);
-  });
+    // Test that the endpoint returns a 400 for missing description field
+    it('rejects a missing description field with a 400', async () => {
+        const res = await request(app).post('/api/suggest').send({});
+        expect(res.status).toBe(400);
+    });
 
-  it('returns a suggestion shape in mock mode, flagged as mockMode: true', async () => {
-    const res = await request(app)
-      .post('/api/suggest')
-      .send({ description: 'Vintage leather jacket, worn once, size M' });
+    // Test that the mock service is used when MOCK_MODE is true
+    it('uses the mock service when MOCK_MODE is true', async () => {
+        process.env.MOCK_MODE = 'true';
+        const res = await request(app)
+        .post('/api/suggest')
+        .send({ description: 'anything at all' });
 
-    expect(res.status).toBe(200);
-    expect(res.body.mockMode).toBe(true);
-    expect(res.body.suggestion).toBeDefined();
-  });
+        expect(res.status).toBe(200);
+        expect(res.body.mockMode).toBe(true);
+        expect(res.body.suggestion).toBeDefined();
+    });
 
-  it('mock pool includes at least one deliberately broken/incomplete example', () => {
-    const examples = require('../mocks/examples.json');
-    const hasBroken = examples.some(
-      (e) =>
-        !e.title ||
-        !e.tags ||
-        e.tags.length === 0 ||
-        !e.priceRange ||
-        (e.priceRange && e.priceRange.min > e.priceRange.max)
-    );
-    expect(hasBroken).toBe(true);
-  });
+    // Test that the default behavior is to use the mock service when MOCK_MODE is unset
+    it('defaults to mock mode when MOCK_MODE is unset (no setup required)', async () => {
+        delete process.env.MOCK_MODE;
+        const res = await request(app)
+        .post('/api/suggest')
+        .send({ description: 'testing' });
+
+        expect(res.status).toBe(200);
+        expect(res.body.mockMode).toBe(true);
+        expect(res.body.suggestion).toBeDefined();
+    });
+
+
+    // Test that the mock service includes at least one deliberately broken/incomplete example - prove that the mock service is exercising the frontend against both good and bad shapes over repeated calls
+    it('mock pool includes at least one deliberately broken/incomplete example', () => {
+        const hasBrokenExample = examples.some(
+        (e) =>
+            !e.title ||
+            !e.tags ||
+            e.tags.length === 0 ||
+            !e.priceRange ||
+            (e.priceRange && e.priceRange.min > e.priceRange.max)
+        );
+        expect(hasBrokenExample).toBe(true);
+    });
+
+    // Test that the mock pool is mostly well-formed (broken examples are the minority, like a real model)
+    it('mock pool is mostly well-formed (broken examples are the minority, like a real model)', () => {
+        const brokenCount = examples.filter(
+        (e) =>
+            !e.title ||
+            !e.tags ||
+            e.tags.length === 0 ||
+            !e.priceRange ||
+            (e.priceRange && e.priceRange.min > e.priceRange.max)
+        ).length;
+
+        expect(brokenCount).toBeLessThan(examples.length / 2);
+    });
 });
