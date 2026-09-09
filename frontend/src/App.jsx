@@ -16,6 +16,16 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [result, setResult] = useState(null);
+  const [mockMode, setMockMode] = useState(true);
+
+  async function checkHealth() {
+    const health = await fetch(`http://localhost:3001/api/health`);
+    const healthData = await health.json();
+    const mockMode = healthData.mockMode;
+    setMockMode(mockMode);
+  }
+
+  checkHealth();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -58,9 +68,13 @@ export default function App() {
           </button>
         </form>
 
-        {result?.mockMode && (
+        {mockMode === false ? (
+          <div className="badge">Real AI model response</div>
+        ) : (
           <div className="badge">Mock mode - showing a saved example response</div>
         )}
+
+        {result?.note && <div className="note">{result.note}</div>}
 
         {error && <div className="error">⚠ {error}</div>}
 

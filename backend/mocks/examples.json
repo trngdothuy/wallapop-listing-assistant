@@ -1,31 +1,31 @@
 [
   {
-    "title": "Vintage Leather Jacket - Size M, Worn Once",
-    "tags": ["vintage", "leather jacket", "size M", "outerwear", "unisex"],
-    "priceRange": { "min": 45, "max": 80, "currency": "EUR" }
+    "title": "Vintage Leather Jacket - Size M - Like New Condition",
+    "tags": ["vintage jacket", "leather jacket", "size M", "outerwear", "fashion"],
+    "priceRange": { "min": 45, "max": 120, "currency": "EUR" }
   },
   {
-    "title": "Nintendo Switch OLED with 3 Games - Excellent Condition",
+    "title": "Nintendo Switch OLED Console Bundle + 3 Games - Great Condition",
     "tags": ["nintendo switch", "oled", "console", "gaming", "bundle"],
     "priceRange": { "min": 220, "max": 260, "currency": "EUR" }
   },
   {
-    "title": "IKEA MALM Desk, White, Good Condition",
+    "title": "IKEA White Desk – Minimalist Home Office & Study Table",
     "tags": ["ikea", "desk", "furniture", "white", "home office"],
     "priceRange": { "min": 30, "max": 55, "currency": "EUR" }
   },
   {
-    "title": "Canon EOS 2000D DSLR Camera with 18-55mm Lens",
+    "title": "Canon DSLR Camera with 18-55mm Zoom Lens Kit",
     "tags": ["canon", "dslr", "camera", "photography", "lens"],
     "priceRange": { "min": 180, "max": 240, "currency": "EUR" }
   },
   {
-    "title": "Kids Bicycle 16 inch, Barely Used",
+    "title": "16-Inch Kids Bicycle – Excellent Condition (Barely Used)",
     "tags": ["bicycle", "kids", "bike", "16 inch"],
     "priceRange": { "min": 40, "max": 65, "currency": "EUR" }
   },
   {
-    "title": "Wooden Bookshelf, 5 Shelves, Solid Pine",
+    "title": "5-Tier Wooden Bookshelf - Sturdy Storage Bookcase",
     "tags": ["bookshelf", "furniture", "wood", "storage"],
     "priceRange": { "min": 60, "max": 90, "currency": "EUR" }
   },

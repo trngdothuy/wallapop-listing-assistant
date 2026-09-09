@@ -12,12 +12,14 @@ router.post('/suggest', async (req, res) => {
   }
 
   const mockMode = process.env.MOCK_MODE !== 'false';
-  console.log(`Received suggestion request (mockMode=${mockMode}):`, description);
 
   try {
-    const suggestion = mockMode
-      ? getMockSuggestion()
-      : await getAiSuggestion(description);
+    if (mockMode) {
+      const { suggestion, note } = getMockSuggestion(description);
+      return res.status(200).json({ mockMode: true, suggestion, note });
+    }
+
+    const suggestion = await getAiSuggestion(description);
 
     return res.status(200).json({ mockMode, suggestion });
   } catch (err) {

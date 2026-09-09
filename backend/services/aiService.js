@@ -22,7 +22,7 @@ export async function getAiSuggestion(description) {
   if (!apiKey) {
     throw new Error('GEMINI_API_KEY is not set. Set it in .env or use MOCK_MODE=true.');
   }
-
+ 
   const ai = new GoogleGenAI({ apiKey });
   const response = await ai.interactions.create({
     model: "gemini-3.8-flash",
