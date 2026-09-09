@@ -17,10 +17,6 @@ After I modified this, it spotted error in `required` and I needed to change to 
 
 3. **"I want to have a mock mode that will work correctly with certain description examples; it may get the results from real AI models and save them to local files to send to the front end. We may use an index to find the exact results for the description sent from the front end. And the invalid input will return an error.**
 
-**Apart from this, random answers are out of scope will get random answers from the list, with the message that mock mode answers are out of scope and may result in random answers and may not be related to the input. It must include some failed cases to show the right results for the front end.**
-
-**I did these, but I'm only missing the note of description is out of scope. Update the tests if necessary. Also update README.md with the needed information and instructions for Mock mode."**
-
 This prompt explained AI what I wanted to build for mock mode in details.
 
 Previously, it created a mock mode that just randomly returned an answer - so it may not be related to the description input. I want to make more sense and return the correct results for the description examples in mock mode. 
