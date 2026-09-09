@@ -2,13 +2,6 @@ import request from 'supertest';
 import app from '../server.js';
 import examples from '../mocks/examples.json';
 
-const isBroken = (e) =>
-    !e.title ||
-    !e.tags ||
-    e.tags.length === 0 ||
-    !e.priceRange ||
-    (e.priceRange && e.priceRange.min > e.priceRange.max);
-
 describe('POST /api/suggest', () => {
   
     beforeEach(() => {
