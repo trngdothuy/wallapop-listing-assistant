@@ -15,7 +15,7 @@ Firstly, Claude used `type: commonJS` but the console returned error and suggest
 
 After I modified this, it spotted error in `required` and I needed to change to `import/export`.
 
-3. **"I want to have a mock mode that will work correctly with certain description examples; it may get the results from real AI models and save them to local files to send to the front end. We may use an index to find the exact results for the description sent from the front end. And the invalid input will return an error.**
+3. **"I want to have a mock mode that will work correctly with certain description examples; it may get the results from real AI models and save them to local files to send to the front end. We may use an index to find the exact results for the description sent from the front end. And the invalid input will return an error."**
 
 This prompt explained AI what I wanted to build for mock mode in details.
 
